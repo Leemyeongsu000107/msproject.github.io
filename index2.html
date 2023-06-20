@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>턱걸이</title>
+</head>
+<style>
+  .ml5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.5em;
+  color: #402d2d;
+}
+
+.ml5 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+  line-height: 1em;
+}
+
+.ml5 .line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 3px;
+  width: 100%;
+  background-color: #402d2d;
+  transform-origin: 0.5 0;
+}
+
+.ml5 .ampersand {
+  font-family: Baskerville, serif;
+  font-style: italic;
+  font-weight: 400;
+  width: 1em;
+  margin-right: -0.1em;
+  margin-left: -0.1em;
+}
+
+.ml5 .letters {
+  display: inline-block;
+  opacity: 0;
+}
+    .text-effect {
+      opacity: 0;
+      white-space: pre-line;
+    }
+    .text-effect1 {
+      opacity: 0;
+      white-space: pre-line;
+    }
+    .img6{
+        position: absolute;
+        top:20%;
+        left:2%;
+    }
+    .img7{
+        position: absolute;
+        top: 422px;
+        left:1070px;
+    }
+    #box{
+        position: absolute;
+        top: 22%;
+        left:35%;
+        font-size:15px;
+    }
+    #box1{
+        position: absolute;
+        top:22%;
+        left:65%;
+        font-size: 15px;
+
+    }
+    .yyy{
+        position: absolute;
+        top:440px;
+        left:590px;
+    }
+    h1{
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform:translate(-50%);
+        margin:0;
+        font-size: 60px;
+    }
+    h2{
+        position: absolute;
+        top:17%;
+        left:35%;
+        font-size:18px;
+    }
+    h3{
+        position: absolute;
+        top:17%;
+        left:65%;
+        font-size:18px;
+    }
+</style>
+<body>
+    <h2>운동소개</h2>
+    <h3>그립</h3>
+    <div id="box" class="text-effect">
+        맨손 운동의 알파이자 오메가.
+        도구를 사용하지 않는 칼리스데닉스 운동법에서도 철봉이나
+        풀업바를 이용한 턱걸이는 반드시 들어갈 정도이며
+        웨이트나 어떤 운동을 하든 등근육을 발달시키기
+        위해서는 반드시 들어가는 필수 동작으로
+        그 중요성과 효율성은 두말할 필요가 없는 그야말로 최고의 맨몸 운동.
+        후술하겠지만 상완이두근과 등근육 뿐만
+        아니라 상체근육 전체를 골고루 단련시키는 운동.
+        요즘 여러 맨몸운동 사이트에서 괜히 턱걸이를 강조하는 게 아니다.
+        광배근이 워낙 다른 운동에도 영향력이 상당하다 보니 보디빌딩.
+        크로스핏 등의 운동 뿐만 아니라 투기 
+        종목 등에서도 정말 일상적으로 실시하는 운동이 바로 턱걸이다.
+    </div>
+    <div id="box1" class="text-effect1">
+        손등이 자신 쪽으로 오게 잡으면 풀업(Pull up) 또는 오버그립(Over Grip),
+        손바닥이 자신 쪽으로 오게 잡으면 친업(Chin up)
+        또는 언더그립(Under Grip)이라고 한다.
+        다르게 구분하는 경우도 있는데,
+        그립과는 무관하게 턱이 봉보다 높게 올라가면 친 업이라고 보기도 한다.
+        이 경우 풀 업 역시 그립과는 무관하다. 전자의 구분법이 좀 더 보편적이다.
+        또 다른 시각에선 그립과 상관없이 팔꿈치가 앞으로 가면 친업,
+        팔꿈치가 밖으로 가면 풀업으로 구분하기도 한다.
+        한 손을 각각 풀 업 과 친 업을 하는 경우, 
+        즉 엇갈리게 잡는 경우를 얼터네이트 그립(Alternate Grip)이라고 한다. 
+        다만, 신체 불균형 문제로 인해 어지간하면 얼터네이트 그립은 추천되지 않는 편.
+    </div>
+    <h1 class="ml5">
+      <span class="text-wrapper">
+        <span class="line line1"></span>
+        <span class="letters letters-left">턱걸이</span>
+        <span class="letters letters-right">운동</span>
+        <span class="line line2"></span>
+      </span>
+    </h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <img class="img6"src="images/img6.png">
+  <img class="img7"src="images/img7.jpg">
+  <script>
+    const textEffect = document.querySelector('.text-effect');
+    const textEffect1 = document.querySelector('.text-effect1');
+    const text = textEffect.innerHTML;
+    const text1 = textEffect1.innerHTML;
+    textEffect.innerHTML = '';
+    textEffect1.innerHTML = '';
+
+    let index = 0;
+    let index1 = 0;
+
+    function showText() {
+      if (index < text.length) {
+        textEffect.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(showText, 20);
+      }
+    }
+
+    function showText1() {
+      if (index1 < text1.length) {
+        textEffect1.innerHTML += text1.charAt(index1);
+        index1++;
+        setTimeout(showText1, 20);
+      }
+    }
+
+    function fadeIn() {
+      let opacity = 0;
+      const fadeInterval = setInterval(() => {
+        if (opacity < 1) {
+          opacity += 0.01;
+          textEffect.style.opacity = opacity;
+        } else  {
+          clearInterval(fadeInterval);
+          showText();
+        }
+      }, 10);
+    }
+
+    function fadeIn1() {
+      let opacity = 0;
+      const fadeInterval = setInterval(() => {
+        if (opacity < 1) {
+          opacity += 0.01;
+          textEffect1.style.opacity = opacity;
+        } else  {
+          clearInterval(fadeInterval);
+          showText1();
+        }
+      }, 10);
+    }
+    fadeIn();
+    fadeIn1();
+    anime.timeline({loop: true})
+  .add({
+    targets: '.ml5 .line',
+    opacity: [0.5,1],
+    scaleX: [0, 1],
+    easing: "easeInOutExpo",
+    duration: 700
+  }).add({
+    targets: '.ml5 .line',
+    duration: 600,
+    easing: "easeOutExpo",
+    translateY: (el, i) => (-0.625 + 0.625*2*i) + "em"
+  }).add({
+    targets: '.ml5 .ampersand',
+    opacity: [0,1],
+    scaleY: [0.5, 1],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=600'
+  }).add({
+    targets: '.ml5 .letters-left',
+    opacity: [0,1],
+    translateX: ["0.5em", 0],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=300'
+  }).add({
+    targets: '.ml5 .letters-right',
+    opacity: [0,1],
+    translateX: ["-0.5em", 0],
+    easing: "easeOutExpo",
+    duration: 600,
+    offset: '-=600'
+  }).add({
+    targets: '.ml5',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+  </script>
+    <div class="yyy">
+    <iframe width="470" height="355" src="https://www.youtube.com/embed/mwwVtQHkVuo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</body>
+</html>

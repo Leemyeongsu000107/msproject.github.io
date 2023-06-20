@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>푸쉬업</title>
+</head>
+<style>
+      .ml7 {
+      position: center;
+    }
+    .ml7 .text-wrapper {
+      position: relative;
+      display: inline-block;
+      padding-top: 0.2em;
+      padding-right: 0.05em;
+      padding-bottom: 0.1em;
+      overflow: hidden;
+    }
+    .ml7 .letter {
+      transform-origin: 0 100%;
+      display: inline-block;
+      line-height: 1em;
+    }
+    .text-effect {
+      opacity: 0;
+      white-space: pre-line;
+    }
+    .img10{
+        position: absolute;
+        top:20%;
+        left:2%;
+    }
+    .img10a{
+        position: absolute;
+        top:63%;
+        left:2%;
+    }
+    .img11{
+        position: absolute;
+        top: 440px;
+        left:1113px;
+    }
+    #box{
+        position: absolute;
+        top: 22%;
+        left:35%;
+        font-size:17px;
+    }
+    #box1{
+        position: absolute;
+        top:22%;
+        left:65%;
+        font-size: 17px;
+
+    }
+    .yyy{
+        position: absolute;
+        top:440px;
+        left:590px;
+    }
+    h1{
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform:translate(-50%);
+        margin:0;
+        font-size: 60px;
+    }
+    h2{
+        position: absolute;
+        top:17%;
+        left:35%;
+        font-size:15px;
+    }
+    h3{
+        position: absolute;
+        top:17%;
+        left:65%;
+        font-size:15px;
+    }
+</style>
+<body>
+    <h2>운동소개</h2>
+    <h3>운동방법</h3>
+    <div id="box" class="text-effect">
+      사람이 아무런 도구 없이도 할 수 있는 순수 맨몸 운동 중 
+      하나이며,자신의 몸을 팔로 밀어내야 하기 때문에 꽤나 
+      근력이 붙는다. 정자세로 수행 시 자신의 몸무게의 3분의 2,
+      약 60~70% 정도의 무게를 밀어내는 것과 같다고 한다.
+      보다 정확한 무게를 알아보는 쉬운 방법은
+      체중계 위에 양손을 올리고 한번 내려갔다 오는 것이다.
+    </div>
+    <div id="box1" class="text-effect1">
+      푸쉬업에는 수많은 배리에이션이 있으나 가장 기본적인 방법은
+      흔히 말하는 엎드러 뻗쳐 상태에서 어깨에서 발끝까지 일직선을
+      이루도록 몸을 단단하게 고정하는 것 부터 시작한다. 다리는 단단히
+      붙이고 엉덩이를 쥐어짜며 어깨는 최대한 낮춰 슈러그가 되지 않도록
+      하여 몸 전체가 하나의 단단한 통나무가 된다는 의식을 한다.
+      팔의 전완부는 지면과 수직이 된 상태에서 축의 역할만 하도록 하며
+      그 상태에서 상완부만 바닥과 평행해지도록 팔꿈치를 접었다
+      폈다 하는 느낌으로 수행한다. 제대로 자세를 잡으면 상완부는
+      몸통과 45도~60도 정도로 벌어져 위에서 보면 몸과 팔이 T자가
+      아닌 화살표 처럼 되는 것이 바람직하다.
+    </div>
+    <h1 class="ml7">
+      <span class="text-wrapper">
+        <span class="letters">푸쉬업 운동</span>
+      </span>
+    </h1>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <img class="img10"src="images/img10.jpg">
+  <img class="img10a"src="images/img10.png">
+  <img class="img11"src="images/img11.jpg">
+  <script>
+    const textEffect = document.querySelector('.text-effect');
+const textEffect1 = document.querySelector('.text-effect1');
+const text = textEffect.innerHTML;
+const text1 = textEffect1.innerHTML;
+textEffect.innerHTML = '';
+textEffect1.innerHTML = '';
+
+let indexValue = 0; // 변경된 변수 이름
+let index1 = 0;
+
+function showText() {
+  if (indexValue < text.length) { // 변경된 변수 이름
+    textEffect.innerHTML += text.charAt(indexValue); // 변경된 변수 이름
+    indexValue++; // 변경된 변수 이름
+    setTimeout(showText, 20);
+  }
+}
+
+function showText1() {
+  if (index1 < text1.length) {
+    textEffect1.innerHTML += text1.charAt(index1);
+    index1++;
+    setTimeout(showText1, 20);
+  }
+}
+
+function fadeIn() {
+  let opacity = 0;
+  const fadeInterval = setInterval(() => {
+    if (opacity < 1) {
+      opacity += 0.01;
+      textEffect.style.opacity = opacity;
+    } else  {
+      clearInterval(fadeInterval);
+      showText();
+    }
+  }, 10);
+}
+
+function fadeIn1() {
+  let opacity = 0;
+  const fadeInterval = setInterval(() => {
+    if (opacity < 1) {
+      opacity += 0.01;
+      textEffect1.style.opacity = opacity;
+    } else  {
+      clearInterval(fadeInterval);
+      showText1();
+    }
+  }, 10);
+}
+
+fadeIn();
+fadeIn1();
+var textWrapper = document.querySelector('.ml7 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml7 .letter',
+    translateY: ["1.1em", 0],
+    translateX: ["0.55em", 0],
+    translateZ: 0,
+    rotateZ: [180, 0],
+    duration: 750,
+    easing: "easeOutExpo",
+    delay: (el, i) => 50 * i
+  }).add({
+    targets: '.ml7',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+  </script>
+    <div class="yyy">
+      <iframe width="470" height="355" src="https://www.youtube.com/embed/ClyasUIQANU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</body>
+</html>

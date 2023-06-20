@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>딥스</title>
+</head>
+<style>
+      .ml15 {
+      font-weight: 800;
+      font-size: 3.8em;
+      text-transform: uppercase;
+      letter-spacing: 0.5em;
+    }
+
+    .ml15 .word {
+      display: inline-block;
+      line-height: 1em;
+    }
+    .text-effect {
+      opacity: 0;
+      white-space: pre-line;
+    }
+    .text-effect1 {
+      opacity: 0;
+      white-space: pre-line;
+    }
+    .img8{
+        position: absolute;
+        top:20%;
+        left:2%;
+    }
+    .img9{
+        position: absolute;
+        top: 440px;
+        left:1113px;
+    }
+    #box{
+        position: absolute;
+        top: 22%;
+        left:35%;
+        font-size:15px;
+    }
+    #box1{
+        position: absolute;
+        top:22%;
+        left:65%;
+        font-size: 15px;
+
+    }
+    .yyy{
+        position: absolute;
+        top:440px;
+        left:590px;
+    }
+    h1{
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform:translate(-50%);
+        margin:0;
+        font-size: 60px;
+    }
+    h2{
+        position: absolute;
+        top:17%;
+        left:35%;
+        font-size:15px;
+    }
+    h3{
+        position: absolute;
+        top:17%;
+        left:65%;
+        font-size:15px;
+    }
+</style>
+<body>
+    <h2>운동소개</h2>
+    <h3>운동방법</h3>
+    <div id="box" class="text-effect">
+      대흉근, 삼두근, 전면 삼각근이 주로 발달되는 운동으로 
+      자신의 체중을 이용하는 방식이며,
+      관절 가동력의 정확한 컨트롤을
+      요하는 점 그리고 잦은 부상의 위험 때문에
+      고급자용 운동 또는 고난도 운동으로 분류된다.
+      개개인의 근력 발달 정도에 따라 턱걸이보다 힘든 운동일 수도,
+      더 쉬운 운동일 수도 있으나 대개 더 쉬운 축에 속한다.
+      다만 부상의 위험성은 턱걸이보다 딥스가 압도적이므로 
+      어설프게 따라하다가 다치기 딱 좋다.
+    </div>
+    <div id="box1" class="text-effect1">
+      1. 봉 위에 올라간다.
+      2. 다리는 자연스럽게 땅에 떨어뜨린다.
+      (높이가 낮으면 앞으로 살짝 무릎을 구부려도 된다.) 
+      3. 견갑골을 하강·전인 한다. (위에 그림 참조)
+      4. 견갑골을 하강·전인하면 자연스럽게 등이 굽어지고 시선은 땅을 보게 된다.
+      5. 팔꿈치가 90도까지만 내려간다. (견갑골 거상·전인)
+      6. 견갑골을 하강·전인 하면서 강하게 올라간다.
+      7. 내려가는게 2 올라가는 게 1의 박자로 한다.
+    </div>
+  <div>
+    <h1 class="ml15">
+      <span class="word">딥스</span>
+      <span class="word">운동</span>
+    </h1>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  </div>
+  <img class="img8"src="images/img8.png">
+  <img class="img9"src="images/img9.png">
+  <script>
+    const textEffect = document.querySelector('.text-effect');
+const textEffect1 = document.querySelector('.text-effect1');
+const text = textEffect.innerHTML;
+const text1 = textEffect1.innerHTML;
+textEffect.innerHTML = '';
+textEffect1.innerHTML = '';
+
+let indexValue = 0; // 변경된 변수 이름
+let index1 = 0;
+
+function showText() {
+  if (indexValue < text.length) { // 변경된 변수 이름
+    textEffect.innerHTML += text.charAt(indexValue); // 변경된 변수 이름
+    indexValue++; // 변경된 변수 이름
+    setTimeout(showText, 20);
+  }
+}
+
+function showText1() {
+  if (index1 < text1.length) {
+    textEffect1.innerHTML += text1.charAt(index1);
+    index1++;
+    setTimeout(showText1, 20);
+  }
+}
+
+function fadeIn() {
+  let opacity = 0;
+  const fadeInterval = setInterval(() => {
+    if (opacity < 1) {
+      opacity += 0.01;
+      textEffect.style.opacity = opacity;
+    } else  {
+      clearInterval(fadeInterval);
+      showText();
+    }
+  }, 10);
+}
+
+function fadeIn1() {
+  let opacity = 0;
+  const fadeInterval = setInterval(() => {
+    if (opacity < 1) {
+      opacity += 0.01;
+      textEffect1.style.opacity = opacity;
+    } else  {
+      clearInterval(fadeInterval);
+      showText1();
+    }
+  }, 10);
+}
+
+fadeIn();
+fadeIn1();
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml15 .word',
+    scale: [14,1],
+    opacity: [0,1],
+    easing: "easeOutCirc",
+    duration: 800,
+    delay: (el, i) => 800 * i
+  }).add({
+    targets: '.ml15',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+  </script>
+    <div class="yyy">
+      <iframe width="470" height="355" src="https://www.youtube.com/embed/YqeQ3D9Ai50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</body>
+</html>

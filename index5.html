@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>밴드</title>
+</head>
+<style>
+      .ml16 {
+      color: #402d2d;
+      padding: 10px 0;
+      font-weight: 800;
+      font-size: 4em;
+      text-transform: uppercase;
+      letter-spacing: 0.5em;
+      overflow: hidden;
+    }
+
+    .ml16 .letter {
+      display: inline-block;
+      line-height: 1em;
+    }
+    .text-effect {
+      opacity: 0;
+      white-space: pre-line;
+    }
+    .text-effect1 {
+      opacity: 0;
+      white-space: pre-line;
+    }
+    .img13{
+        position: absolute;
+        top:20%;
+        left:7%;
+    }
+    .img12{
+        position: absolute;
+        top: 440px;
+        left:1113px;
+    }
+    #box{
+        position: absolute;
+        top: 22%;
+        left:35%;
+        font-size:15px;
+    }
+    #box1{
+        position: absolute;
+        top:22%;
+        left:65%;
+        font-size: 15px;
+
+    }
+    .yyy{
+        position: absolute;
+        top:440px;
+        left:590px;
+    }
+    h1{
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%);
+        margin: 0;
+    }
+    h2{
+        position: absolute;
+        top:17%;
+        left:35%;
+        font-size:15px;
+    }
+    h3{
+        position: absolute;
+        top:17%;
+        left:65%;
+        font-size:15px;
+    }
+</style>
+<body>
+    <h2>운동소개</h2>
+    <h3>운동방법</h3>
+    <div id="box" class="text-effect">
+      고무밴드는 우리가 흔히 알고 있는
+      고무줄을 크게 제작한 것으로 볼 수 있다.
+      얇고 가벼우며 탄력저항을 
+      가지고 있어 운동 시 강도 조절이 쉽다.
+      그럼 특장점을 구체적으로 살펴보자.
+      고무밴드는 저항을 이용해 운동하고자 하는 부위의
+      근육을 활성화할 수 있다.
+      또 관절이 좋지 않은 곳 혹은 수술 이후 재활이 필요한 곳을 운동할 때도
+      개인의 근력과 상황에 맞춰 무리 없이 강도 조절이 가능하다.
+      덤벨 같은 기구는 개인이 조절할 수 없으나,
+      고무밴드는 상황에 따라 바로 강도 조절이 가능한 장점이 있다
+
+    </div>
+    <div id="box1" class="text-effect1">
+      밴드 스트레칭은 긴장된 근육과 관절을 충분히
+      풀어줘 생리적 변화에 대한 신체 적응력을 높인다.
+      일명 테라밴드라 하는 엑서사이즈 밴드는 다양한
+      트레이닝을 할 수 있는 저항운동 기구다.
+      운동의 강도와 방향 조절이 간편하며 휴대하기
+      편리해 장소에 구애받지 않고 트레이닝에 활용할 수 있다
+    </div>
+    <h1 class="ml16">밴드 운동</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <img class="img13"src="images/img13.jpg">
+  <img class="img12"src="images/img12.jpg">
+  <script>
+    const textEffect = document.querySelector('.text-effect');
+const textEffect1 = document.querySelector('.text-effect1');
+const text = textEffect.innerHTML;
+const text1 = textEffect1.innerHTML;
+textEffect.innerHTML = '';
+textEffect1.innerHTML = '';
+
+let indexValue = 0; // 변경된 변수 이름
+let index1 = 0;
+
+function showText() {
+  if (indexValue < text.length) { // 변경된 변수 이름
+    textEffect.innerHTML += text.charAt(indexValue); // 변경된 변수 이름
+    indexValue++; // 변경된 변수 이름
+    setTimeout(showText, 20);
+  }
+}
+
+function showText1() {
+  if (index1 < text1.length) {
+    textEffect1.innerHTML += text1.charAt(index1);
+    index1++;
+    setTimeout(showText1, 20);
+  }
+}
+
+function fadeIn() {
+  let opacity = 0;
+  const fadeInterval = setInterval(() => {
+    if (opacity < 1) {
+      opacity += 0.01;
+      textEffect.style.opacity = opacity;
+    } else  {
+      clearInterval(fadeInterval);
+      showText();
+    }
+  }, 10);
+}
+
+function fadeIn1() {
+  let opacity = 0;
+  const fadeInterval = setInterval(() => {
+    if (opacity < 1) {
+      opacity += 0.01;
+      textEffect1.style.opacity = opacity;
+    } else  {
+      clearInterval(fadeInterval);
+      showText1();
+    }
+  }, 10);
+}
+
+fadeIn();
+fadeIn1();
+var textWrapper = document.querySelector('.ml16');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml16 .letter',
+    translateY: [-100,0],
+    easing: "easeOutExpo",
+    duration: 1400,
+    delay: (el, i) => 30 * i
+  }).add({
+    targets: '.ml16',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+  </script>
+    <div class="yyy">
+      <iframe width="470" height="355" src="https://www.youtube.com/embed/LQ08iriZHE4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
